@@ -1,1 +1,1 @@
-# Henoria-Verre2OuiSki-Plugins
+#Plugins for Henoria ###By Verre2OuiSki
