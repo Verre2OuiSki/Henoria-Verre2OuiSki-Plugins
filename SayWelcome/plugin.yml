@@ -1,0 +1,26 @@
+name: SayWelcome
+version: 1.0.0
+main: SayWelcome\Main
+api: 3.17.0
+
+author: Verre2OuiSki
+description: Say welcome to new players !
+website: https://twitter.com/Verre2OuiSki
+
+# -----------------------------------------------
+
+commands:
+
+  bienvenue:
+    description: "Souhaitez la bienvenue au dernier nouveau joueur !"
+    usage: "/bienvenue"
+    aliases:
+      - bvn
+    permission: saywelcome.command.bienvenue
+
+# -----------------------------------------------
+
+permissions:
+ saywelcome.command.bienvenue:
+  description: "Allows the user to run the bienvenue command"
+  default: true
