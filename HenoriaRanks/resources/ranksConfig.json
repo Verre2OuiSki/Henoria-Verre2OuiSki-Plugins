@@ -1,60 +1,70 @@
 {
 
-  "admin": {
+  "defaultRank": "player",
 
-    "rank": "Administrateur",
-    "cmdIdentifiers": [ "administrateur", "admin" ],
-    "chat": "§4[ §c{rank} §4] §c{player} §4» §c{message}",
-    "nametag": "§4[ §c{rank} §4]\n§c{player}",
+  "ranks": {
 
-    "permissions": {
-      "children": "player",
-      "permissions": [
+    "admin": {
 
-      ]
-    }
-  },
+      "rank": "Administrateur",
+      "cmdIdentifiers": [ "administrateur", "admin" ],
+      "chat": "§4[ §c{rank} §4] §c{player} §4» §c{message}",
+      "nametag": "§4[ §c{rank} §4]\n§c{player}",
 
-  "moderator": {
-    "rank": "Modérateur",
-    "cmdIdentifiers": [ "moderateur", "modo" ],
-    "chat": "§1[ §9{rank} §1] §9{player} §1» §9{message}",
-    "nametag": "§1[ §9{rank} §1]\n§9{player}",
+      "permissions": {
+        "children": "player",
+        "permissions": [
 
-    "permissions": {
-      "children": "player",
-      "permissions": [
+        ]
+      }
+    },
 
-      ]
-    }
-  },
 
-  "guide": {
-    "rank": "Guide",
-    "cmdIdentifiers": [ "guide" ],
-    "chat": "§2[ §a{rank} §2] §a{player} §2» §a{message}",
-    "nametag": "§2[ §a{rank} §2]\n§a{player}",
 
-    "permissions": {
-      "children": "player",
-      "permissions": [
+    "moderator": {
+      "rank": "Modérateur",
+      "cmdIdentifiers": [ "moderateur", "modo" ],
+      "chat": "§1[ §9{rank} §1] §9{player} §1» §9{message}",
+      "nametag": "§1[ §9{rank} §1]\n§9{player}",
 
-      ]
-    }
-  },
+      "permissions": {
+        "children": "player",
+        "permissions": [
 
-  "player": {
-    "rank": "Joueur",
-    "cmdIdentifiers": [ "joueur" ],
-    "chat": "§8[ §7{rank} §8] §7{player} §8» §7{message}",
-    "nametag": "§8[ §7{rank} §8]\n§7{player}",
+        ]
+      }
+    },
 
-    "permissions": {
-      "children": null,
-      "permissions": [
 
-      ]
+
+    "guide": {
+      "rank": "Guide",
+      "cmdIdentifiers": [ "guide" ],
+      "chat": "§2[ §a{rank} §2] §a{player} §2» §a{message}",
+      "nametag": "§2[ §a{rank} §2]\n§a{player}",
+
+      "permissions": {
+        "children": "player",
+        "permissions": [
+
+        ]
+      }
+    },
+
+
+
+    "player": {
+      "rank": "Joueur",
+      "cmdIdentifiers": [ "joueur" ],
+      "chat": "§8[ §7{rank} §8] §7{player} §8» §7{message}",
+      "nametag": "§8[ §7{rank} §8]\n§7{player}",
+
+      "permissions": {
+        "children": null,
+        "permissions": [
+
+        ]
+      }
     }
   }
-
 }

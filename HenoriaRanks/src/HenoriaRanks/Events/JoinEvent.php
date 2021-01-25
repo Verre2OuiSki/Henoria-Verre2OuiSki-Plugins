@@ -18,14 +18,7 @@ class JoinEvent implements Listener{
 
         $player = $event->getPlayer();
 
-        if( !$player->hasPlayedBefore() ){
 
-            $this->plugin->setLastPlayer( $player->getName(), time() );
-            $this->plugin->resetwelcomePlayers();
-
-            $this->plugin->getServer()->broadcastMessage("§2§l» §r§a{$player->getName()} se connecte pour la premiere fois sur le serveur !\nSouhaitez lui la bienvenue ! §o(/bienvenue)");
-
-        }
 
     }
 

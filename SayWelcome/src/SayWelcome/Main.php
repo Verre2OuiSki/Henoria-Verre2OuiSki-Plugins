@@ -23,6 +23,7 @@ class Main extends PluginBase{
     public function onEnable() : void{
 
         $this->getServer()->getPluginManager()->registerEvents(new JoinEvent($this), $this);
+        $this->getServer()->getPluginManager()->registerEvents(new QuitEvent($this), $this);
 
         $this->getLogger()->info( TextFormat::DARK_GREEN . "SayWelcome a été activé !" );
 
@@ -148,11 +149,19 @@ class Main extends PluginBase{
 
 
 
-    public function setLastPlayer( $playerName, $timestamp ){
+    public static function setLastPlayer( $playerName, $timestamp ){
         $this->lastPlayer = [ $playerName, $timestamp ];
     }
 
-    public function resetwelcomePlayers(){
+    public static function getLastPlayer( $playerName, $timestamp ){
+        return $this->lastPlayer;
+    }
+
+    public static function resetLastPlayer(){
+        $this->lastPlayer = [];
+    }
+
+    public static function resetWelcomePlayers(){
         $this->welcomePlayers = [];
     }
 
