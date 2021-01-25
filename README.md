@@ -1,1 +1,2 @@
-#Plugins for Henoria ###By Verre2OuiSki
+#Plugins for Henoria
+###By Verre2OuiSki
