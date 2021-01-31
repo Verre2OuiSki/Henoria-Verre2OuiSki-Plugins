@@ -1,6 +1,6 @@
 <?php
 
-namespace SayWelcome;
+namespace HenoriaWelcome;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;

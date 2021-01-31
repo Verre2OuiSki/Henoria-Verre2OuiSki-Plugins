@@ -1,6 +1,6 @@
-name: SayWelcome
+name: HenoriaWelcome
 version: 1.0.0
-main: SayWelcome\Main
+main: HenoriaWelcome\Main
 api: 3.17.0
 
 author: Verre2OuiSki
@@ -16,7 +16,7 @@ commands:
     usage: "/bienvenue"
     aliases:
       - bvn
-    permission: saywelcome.command.bienvenue
+    permission: henoriawelcome.command.bienvenue
 
 # -----------------------------------------------
 

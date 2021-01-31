@@ -1,6 +1,6 @@
 <?php
 
-namespace SayWelcome;
+namespace HenoriaWelcome;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -17,7 +17,7 @@ class Main extends PluginBase{
     private $welcomePlayers = []; // Name of all player sayed welcome to the last player join the server for the first time
 
     public function onLoad() : void {
-        $this->getLogger()->info( TextFormat::DARK_PURPLE . "SayWelcome a été chargé !" );
+        $this->getLogger()->info( TextFormat::DARK_PURPLE . $this->getFullName() . " a été chargé !" );
     }
 
     public function onEnable() : void{
@@ -25,7 +25,7 @@ class Main extends PluginBase{
         $this->getServer()->getPluginManager()->registerEvents(new JoinEvent($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new QuitEvent($this), $this);
 
-        $this->getLogger()->info( TextFormat::DARK_GREEN . "SayWelcome a été activé !" );
+        $this->getLogger()->info( TextFormat::DARK_GREEN . $this->getFullName() . " a été activé !" );
 
 
         // Get the value of key "sayWelcomeTimer" in YAML config file
@@ -38,7 +38,7 @@ class Main extends PluginBase{
     }
 
     public function onDisable() : void{
-        $this->getLogger()->info( TextFormat::DARK_RED . "SayWelcome a été désactivé !" );
+        $this->getLogger()->info( TextFormat::DARK_RED . $this->getFullName() . " a été désactivé !" );
     }
 
 
