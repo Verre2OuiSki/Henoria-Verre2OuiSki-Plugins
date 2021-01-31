@@ -2,8 +2,11 @@
 
 namespace HenoriaRanks\Loaders;
 
+use HenoriaRanks\Commands\RemoveRank;
+use HenoriaRanks\Commands\SetRank;
 use pocketmine\utils\TextFormat;
 use HenoriaRanks\Main;
+
 
 class Commands{
 
@@ -14,7 +17,8 @@ class Commands{
 
 
             // Utilities
-
+            "setrank" => new SetRank( Main::getInstance() ),
+            "removerank" => new RemoveRank( Main::getInstance() )
 
         ];
 

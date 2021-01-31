@@ -5,7 +5,7 @@ namespace HenoriaRanks\Loaders;
 use pocketmine\utils\TextFormat;
 
 use HenoriaRanks\Main;
-use HenoriaRanks\Events\JoinEvent;
+use HenoriaRanks\Events\{JoinEvent,QuitEvent , ChatEvent};
 
 class Events{
 
@@ -14,7 +14,9 @@ class Events{
 
         $events = [
 
-            "join" => new JoinEvent( Main::getInstance() )
+            "join" => new JoinEvent( Main::getInstance() ),
+            "quit" => new QuitEvent( Main::getInstance() ),
+            "chat" => new ChatEvent( Main::getInstance() )
         ];
 
         foreach ( $events as $name => $file ){

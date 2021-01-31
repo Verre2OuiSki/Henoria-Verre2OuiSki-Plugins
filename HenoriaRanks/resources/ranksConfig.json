@@ -1,18 +1,22 @@
 {
 
+
+
   "defaultRank": "player",
+
+
 
   "ranks": {
 
     "admin": {
 
-      "rank": "Administrateur",
+      "rankDisplayName": "Administrateur",
       "cmdIdentifiers": [ "administrateur", "admin" ],
-      "chat": "§4[ §c{rank} §4] §c{player} §4» §c{message}",
-      "nametag": "§4[ §c{rank} §4]\n§c{player}",
+      "playerChat": "§4[ §c{rank} §4] §c{player} §4» §c{message}",
+      "playerNametag": "§4[ §c{rank} §4]\n§c{player}",
 
       "permissions": {
-        "children": "player",
+        "children": "moderator",
         "permissions": [
 
         ]
@@ -22,15 +26,15 @@
 
 
     "moderator": {
-      "rank": "Modérateur",
+      "rankDisplayName": "Modérateur",
       "cmdIdentifiers": [ "moderateur", "modo" ],
-      "chat": "§1[ §9{rank} §1] §9{player} §1» §9{message}",
-      "nametag": "§1[ §9{rank} §1]\n§9{player}",
+      "playerChat": "§1[ §9{rank} §1] §9{player} §1» §9{message}",
+      "playerNametag": "§1[ §9{rank} §1]\n§9{player}",
 
       "permissions": {
-        "children": "player",
+        "children": "guide",
         "permissions": [
-
+        	"henoriaranks.command.rankmanager"
         ]
       }
     },
@@ -38,10 +42,10 @@
 
 
     "guide": {
-      "rank": "Guide",
+      "rankDisplayName": "Guide",
       "cmdIdentifiers": [ "guide" ],
-      "chat": "§2[ §a{rank} §2] §a{player} §2» §a{message}",
-      "nametag": "§2[ §a{rank} §2]\n§a{player}",
+      "playerChat": "§2[ §a{rank} §2] §a{player} §2» §a{message}",
+      "playerNametag": "§2[ §a{rank} §2]\n§a{player}",
 
       "permissions": {
         "children": "player",
@@ -54,10 +58,10 @@
 
 
     "player": {
-      "rank": "Joueur",
+      "rankDisplayName": "Joueur",
       "cmdIdentifiers": [ "joueur" ],
-      "chat": "§8[ §7{rank} §8] §7{player} §8» §7{message}",
-      "nametag": "§8[ §7{rank} §8]\n§7{player}",
+      "playerChat": "§8[ §7{rank} §8] §7{player} §8» §7{message}",
+      "playerNametag": "§8[ §7{rank} §8]\n§7{player}",
 
       "permissions": {
         "children": null,

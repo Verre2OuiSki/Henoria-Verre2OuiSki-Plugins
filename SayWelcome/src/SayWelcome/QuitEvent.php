@@ -5,7 +5,7 @@ namespace SayWelcome;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 
-class Quit implements Listener{
+class QuitEvent implements Listener{
 
     public $plugin;
 

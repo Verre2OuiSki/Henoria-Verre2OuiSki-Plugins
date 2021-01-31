@@ -1,4 +1,4 @@
-name: HenoriaRanksss
+name: HenoriaRanks
 version: 1.0.0
 main: HenoriaRanks\Main
 api: 3.17.0
@@ -9,4 +9,10 @@ website: https://twitter.com/Verre2OuiSki
 
 # -----------------------------------------------
 
-# kjqnsdhjbqsd
+
+
+permissions:
+
+  henoriaranks.command.rankmanager:
+    description: "Permet a l'utilisateur de gérer les ranks des autres joueurs"
+    default: op

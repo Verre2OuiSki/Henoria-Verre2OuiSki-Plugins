@@ -2,6 +2,8 @@
 
 namespace HenoriaRanks;
 
+use HenoriaRanks\Loaders\Commands;
+use HenoriaRanks\Loaders\Events;
 use pocketmine\utils\TextFormat;
 use pocketmine\plugin\PluginBase;
 
@@ -17,6 +19,8 @@ class Main extends PluginBase{
     public function onEnable() : void{
         self::$_instance = $this;
 
+        Commands::Load();
+        Events::Load();
         $this->getLogger()->info( TextFormat::DARK_GREEN . $this->getFullName() . " a été activé !" );
     }
 
