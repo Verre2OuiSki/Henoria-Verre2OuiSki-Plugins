@@ -11,3 +11,8 @@
 # exemple: 00:00:00 (H:m:s)
 
 sayWelcomeTimer: 00:00:10
+
+
+# Define the welcome message sent by the player
+# {player} = player who has just joined
+welcomeMessage: "Salut @{player} ! Je te souhaite la bienvenue sur le serveur !"

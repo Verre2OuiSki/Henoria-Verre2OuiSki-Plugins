@@ -1,0 +1,12 @@
+name: HenoriaDCR
+version: 1.0.0
+main: HenoriaDCR\Main
+api: 3.17.0
+
+load: STARTUP
+
+author: Verre2OuiSki
+description: Default command remover
+website: https://twitter.com/Verre2OuiSki
+
+# -----------------------------------------------

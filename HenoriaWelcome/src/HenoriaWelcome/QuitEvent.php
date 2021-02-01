@@ -19,8 +19,8 @@ class QuitEvent implements Listener{
         $player = $event->getPlayer();
         if( !$player->hasPlayedBefore() ) {
 
-            if( $player->getName() === Main::getLastPlayer()[0] ){
-                Main::resetLastPlayer();
+            if( $player->getName() === $this->plugin->getLastPlayer()[0] ){
+                $this->plugin->resetLastPlayer();
             }
 
         }

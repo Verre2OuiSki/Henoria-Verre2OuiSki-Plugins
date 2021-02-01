@@ -13,6 +13,8 @@ class Main extends PluginBase{
 
 
     private $sayWelcomeTimer;
+    private $welcomeMessage;
+
     private $lastPlayer = []; // Name of the last player join the server for the first time and its timestamp
     private $welcomePlayers = []; // Name of all player sayed welcome to the last player join the server for the first time
 
@@ -31,6 +33,9 @@ class Main extends PluginBase{
         // Get the value of key "sayWelcomeTimer" in YAML config file
         $sayWelcomeTimer = $this->getConfig()->get( "sayWelcomeTimer" );
         $sayWelcomeTimer = explode( ":", $sayWelcomeTimer );
+
+        // Get the value of key "welcomeMessage" in YAML config file
+        $this->welcomeMessage = $this->getConfig()->get( "welcomeMessage" );
 
         // Convert the "H:m:s" value to seconds
         $this->sayWelcomeTimer = (int)$sayWelcomeTimer[0] * 60 * 60 + (int)$sayWelcomeTimer[1] * 60 + (int)$sayWelcomeTimer[2];
@@ -60,13 +65,13 @@ class Main extends PluginBase{
 
                                 if ( (time() - $this->lastPlayer[1]) <= $this->sayWelcomeTimer ){
 
-                                    $message = "§1§l» §r§9@{sender} souhaite la bienvenue à @{player} sur le serveur !";
+                                    $message = "Salut @{player} ! Je te souhaite la bienvenue à sur le serveur !";
 
-                                    $this->getServer()->broadcastMessage(
+                                   	$sender->chat(
                                         str_replace(
-                                            [ "{sender}", "{player}" ],
-                                            [ $sender->getName(), $this->lastPlayer[0] ],
-                                            $message
+                                            [ "{player}" ],
+                                            [ $this->lastPlayer[0] ],
+                                            $this->welcomeMessage
                                         )
                                     );
                                     array_push( $this->welcomePlayers, $sender->getName() );
@@ -149,19 +154,19 @@ class Main extends PluginBase{
 
 
 
-    public static function setLastPlayer( $playerName, $timestamp ){
+    public function setLastPlayer( $playerName, $timestamp ){
         $this->lastPlayer = [ $playerName, $timestamp ];
     }
 
-    public static function getLastPlayer( $playerName, $timestamp ){
+    public function getLastPlayer(){
         return $this->lastPlayer;
     }
 
-    public static function resetLastPlayer(){
+    public function resetLastPlayer(){
         $this->lastPlayer = [];
     }
 
-    public static function resetWelcomePlayers(){
+    public function resetWelcomePlayers(){
         $this->welcomePlayers = [];
     }
 
