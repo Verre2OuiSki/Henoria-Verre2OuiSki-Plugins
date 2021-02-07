@@ -1,0 +1,38 @@
+
+# --------------------------------- #
+# |         Verre2OuiSki          | #
+# --------------------------------- #
+
+
+
+xapiAccounts:
+  - "7946304a8ee150964920dd474045a3eb007bbf36"
+
+
+
+# ----- Messages : -----
+
+requestLimit: "Désolé, le serveur semble avoir beaucoup de succès !\nVeuillez vous connecter a la prochaine heure !.\nSi le problème persiste, veuillez contacter un membre du staff via notre discord."
+
+
+serverBroadcast:
+  warn: "{staff} {reason}"
+  muteMessage: "{staff} {time} {reason}"
+
+  kickMessage: "{staff} {reason}"
+  banMessage: "{staff} {time} {reason}"
+  banIpMessage: "{staff} {reason}"
+
+
+
+playerBroadcast:
+  muteMessage: "{staff} {time} {reason}"
+
+  kickMessage: "Vous avez été kick du serveur par {staff}\nRaison : {reason}"
+  banMessage: "Vous avez été banni temporairement par {staff}\nPendant {time}\nPour : {reason}"
+  banIpMessage: "Vous avez été banni a vie par {staff}\nPour : {reason}"
+
+playerTryJoin:
+
+  banMessage: "Vous avez été banni temporairement par {staff}\nPour : {reason}\nIl vous reste : {time}"
+  banIpMessage: "jsqndjnqsd"

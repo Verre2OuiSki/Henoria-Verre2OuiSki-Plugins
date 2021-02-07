@@ -1,0 +1,55 @@
+CREATE TABLE IF NOT EXISTS warns (
+    warn_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    xuid TEXT,
+    playerName TEXT,
+    reason TEXT,
+    source TEXT,
+    creationDate TEXT
+);
+
+CREATE TABLE IF NOT EXISTS mutes_history (
+    mute_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    xuid TEXT,
+    playerName TEXT,
+    reason TEXT,
+    source TEXT,
+    creationDate TEXT,
+    expirationDate TEXT 
+);
+CREATE TABLE IF NOT EXISTS current_mutes (
+    current_mute_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    xuid TEXT,
+    playerName TEXT,
+    reason TEXT,
+    source TEXT,
+    creationDate TEXT,
+    expirationDate TEXT 
+);
+
+CREATE TABLE IF NOT EXISTS bans_history (
+    ban_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    xuid TEXT,
+    playerName TEXT,
+    reason TEXT,
+    source TEXT,
+    creationDate TEXT,
+    expirationDate TEXT 
+);
+CREATE TABLE IF NOT EXISTS current_bans (
+    current_ban_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    xuid TEXT,
+    playerName TEXT,
+    reason TEXT,
+    source TEXT,
+    creationDate TEXT,
+    expirationDate TEXT 
+);
+CREATE TABLE IF NOT EXISTS ip_bans (
+    ban_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ip TEXT,
+    xuid TEXT,
+    playerName TEXT,
+    reason TEXT,
+    source TEXT,
+    creationDate TEXT,
+);

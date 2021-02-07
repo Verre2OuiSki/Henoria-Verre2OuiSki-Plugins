@@ -1,0 +1,56 @@
+name: HenoriaMod
+version: 1.0.0
+main: HenoriaMod\Main
+api: 3.17.0
+
+author: Verre2OuiSki
+description: Ranks and permissions systeme for Henoria.
+website: https://twitter.com/Verre2OuiSki
+
+# -----------------------------------------------
+
+
+
+permissions:
+
+  # Ban permissions
+  henoriamod.command.banip:
+    description: "Autorise le bannissement permanent d'un utilisateur"
+    default: op
+
+  henoriamod.command.tempban:
+    description: "Autorise le bannissement temporairement d'un utilisateur"
+    default: op
+
+  henoriamod.command.unban:
+    description: "Autorise d'annuler le bannisement d'un utilisateur"
+    default: op
+
+
+
+  # Mute permissions
+  henoriamod.command.tempmute:
+    description: "Autorise a rendre muet temporairement un utilisateur"
+    default: op
+
+  henoriamod.command.unmute:
+    description: "Autorise d'annuler le silence d'un utilisateur"
+    default: op
+
+
+
+  # Kick permissions
+  henoriamod.command.kick:
+    description: "Autorise l'exclusion d'un utilisateur"
+    default: op
+
+
+
+  # Warn permissions
+  henoriamod.command.warn:
+    description: "Autorise l'avertissement d'un utilisateur"
+    default: op
+
+  henoriamod.command.unwarn:
+    description: "Autorise l'annulation d'un avertissement d'un utilisateur"
+    default: op
