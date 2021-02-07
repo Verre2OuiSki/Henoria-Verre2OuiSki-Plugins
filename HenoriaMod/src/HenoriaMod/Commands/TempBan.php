@@ -48,8 +48,6 @@ class TempBan extends PluginCommand{
                     unset( $args[0], $args[1] );
                     $reason = implode( " ", $args );
 
-                    var_dump( $unit );
-                    
                     $banTime = new \DateTime();
                     $broadcastTime = "";
                     switch ( $unit ){

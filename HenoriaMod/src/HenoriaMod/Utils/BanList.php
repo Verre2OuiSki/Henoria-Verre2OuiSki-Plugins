@@ -7,9 +7,10 @@ use HenoriaMod\Database\SqliteDb;
 
 class BanList extends SqliteDb {
 
-    public function isBanned( $xuid ) : bool {
+    public function isBanned( string $xuid, string $ip ) : bool {
 
-        $ban_ip = parent::getBanIp( $xuid );
+
+        $ban_ip = parent::getBanIp( $xuid, $ip );
         if( !empty( $ban_ip ) ){ return true; }
 
 
@@ -38,9 +39,9 @@ class BanList extends SqliteDb {
 
     }
 
-    public function getEntry( $xuid ){
+    public function getEntry( string $xuid, string $ip ){
 
-        $ban_ip = parent::getBanIp( $xuid );
+        $ban_ip = parent::getBanIp( $xuid, $ip );
 
         if( !empty( $ban_ip ) ){
 
@@ -81,17 +82,18 @@ class BanList extends SqliteDb {
                 $entry->getCreation()
             );
 
+        }else{
+
+            parent::addCurrentBan(
+                $entry->getXuid(),
+                $entry->getPlayerName(),
+                $entry->getReason(),
+                $entry->getSource(),
+                $entry->getCreation(),
+                $entry->getExpire()
+            );
+
         }
-
-        parent::addCurrentBan(
-            $entry->getXuid(),
-            $entry->getPlayerName(),
-            $entry->getReason(),
-            $entry->getSource(),
-            $entry->getCreation(),
-            $entry->getExpire()
-        );
-
     }
 
 

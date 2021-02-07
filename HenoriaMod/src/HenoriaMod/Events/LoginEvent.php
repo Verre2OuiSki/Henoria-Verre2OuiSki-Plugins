@@ -30,8 +30,8 @@ class LoginEvent implements Listener{
 
     public function onLogin( PlayerPreLoginEvent $event ) : void {
 
-
         $player = $event->getPlayer();
+
 
         $apiRequest = new XboxApiRequest( $player->getName() );
 
@@ -47,9 +47,9 @@ class LoginEvent implements Listener{
 
         $banList = new BanList( $this->plugin );
 
-        if( $banList->isBanned( $playerXuid ) ){
+        if( $banList->isBanned( $playerXuid, $player->getAddress() ) ){
 
-            $banEntry = $banList->getEntry( $playerXuid );
+            $banEntry = $banList->getEntry( $playerXuid, $player->getAddress() );
 
             if( !empty( $banEntry->getIp() ) ){
 

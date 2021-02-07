@@ -107,14 +107,16 @@ class SqliteDb{
         $request->execute();
     }
 
-    protected function getBanIp( string $ip ) : array {
+    protected function getBanIp( string $xuid, string $ip ) : array {
 
         $request = $this->db->prepare("
             SELECT ip, xuid, playerName, reason, source, creationDate
             FROM ip_bans
             WHERE ip = :ip
+            OR xuid = :xuid
         ");
         $request->bindValue( ":ip", $ip );
+        $request->bindValue( ":xuid", $xuid );
         $result = $request->execute()->fetchArray( SQLITE3_ASSOC );
 
         return $result === false ? [] : $result;

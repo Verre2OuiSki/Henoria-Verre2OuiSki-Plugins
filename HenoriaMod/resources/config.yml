@@ -16,12 +16,12 @@ requestLimit: "Désolé, le serveur semble avoir beaucoup de succès !\nVeuillez
 
 
 serverBroadcast:
-  warn: "{staff} {reason}"
-  muteMessage: "{staff} {time} {reason}"
+  warn: "{player} {staff} {reason}"
+  muteMessage: "{player} {staff} {time} {reason}"
 
-  kickMessage: "{staff} {reason}"
-  banMessage: "{staff} {time} {reason}"
-  banIpMessage: "{staff} {reason}"
+  kickMessage: "{player} {staff} {reason}"
+  banMessage: "{player} {staff} {time} {reason}"
+  banIpMessage: "{player} {staff} {reason}"
 
 
 
@@ -35,4 +35,4 @@ playerBroadcast:
 playerTryJoin:
 
   banMessage: "Vous avez été banni temporairement par {staff}\nPour : {reason}\nIl vous reste : {time}"
-  banIpMessage: "jsqndjnqsd"
+  banIpMessage: "Vous avez été banni à vie par {staff}\nPour : {reason}"
