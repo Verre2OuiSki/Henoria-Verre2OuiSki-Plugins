@@ -27,57 +27,70 @@ class Ban extends PluginCommand{
         $this->setPermissionMessage("§cVous n'avez pas la permissions d'utiliser cette commande." );
     }
 
-    public function execute(CommandSender $sender, string $commandLabel, array $args){
+    public function execute(CommandSender $sender, string $commandLabel, array $args): bool
+    {
 
         if( !$sender->hasPermission( $this->getPermission() ) ){
-            $sender->sendMessage( $this->getPermissionMessage() );
-            return;
+            $sender->sendMessage( $this->getPermissionMessage() ); return false;
         }
 
-        if( isset( $args[0], $args[1] ) ){
+        // Test if args has been passed
+        if( isset( $args[0] ) ){
 
             $player = $this->plugin->getServer()->getPlayer( $args[0] );
 
+            // Test if player has been found
             if( $player instanceof Player){
 
-                unset( $args[0] );
-                $reason = implode( " ", $args );
+                // Test if reason has been passed
+                if( isset( $args[1] ) ){
 
-                $banEntry = new BanEntry( $player->getXuid(), $player->getName() );
-                $banEntry->setIp( $player->getAddress() );
-                $banEntry->setSource( $sender->getName() );
-                $banEntry->setReason( $reason );
+                    unset( $args[0] );
+                    $reason = implode( " ", $args );
 
-                $banList = new BanList( $this->plugin );
-                $banList->addEntry( $banEntry );
+                    $banEntry = new BanEntry( $player->getXuid(), $player->getName() );
+                    $banEntry->setIp( $player->getAddress() );
+                    $banEntry->setSource( $sender->getName() );
+                    $banEntry->setReason( $reason );
 
-                $broadcastMsg = $this->plugin->getConfig()->get("serverBroadcast")[ "banIpMessage" ];
-                $playerMsg = $this->plugin->getConfig()->get( "playerBroadcast" )[ "banIpMessage" ];
+                    $banList = new BanList( $this->plugin );
+                    $banList->addEntry( $banEntry );
 
-                $this->plugin->getServer()->broadcastMessage(
-                    str_replace(
-                        [ "{player}", "{staff}", "{reason}" ],
-                        [ $player->getName(), $sender->getName(), $reason ],
-                        $broadcastMsg
-                    )
-                );
+                    $broadcastMsg = $this->plugin->getConfig()->get("serverBroadcast")[ "banIpMessage" ];
+                    $playerMsg = $this->plugin->getConfig()->get( "playerBroadcast" )[ "banIpMessage" ];
 
-                $player->kick(
-                    str_replace(
-                        [ "{staff}", "{reason}" ],
-                        [ $sender->getName(), $reason ],
-                        $playerMsg
-                    ),
-                    false
-                );
+                    $this->plugin->getServer()->broadcastMessage(
+                        str_replace(
+                            [ "{player}", "{staff}", "{reason}" ],
+                            [ $player->getName(), $sender->getName(), $reason ],
+                            $broadcastMsg
+                        )
+                    );
+
+                    $player->kick(
+                        str_replace(
+                            [ "{staff}", "{reason}" ],
+                            [ $sender->getName(), $reason ],
+                            $playerMsg
+                        ),
+                        false
+                    );
+
+                    return true;
+
+                }else{
+                    // No reason passed
+                    $sender->sendMessage( "§cVeuillez saisir une raison" ); return false;
+                }
 
             }else{
-                // $player not instanceof Player
-                $sender->sendMessage( "§cLe joueur saisi est introuvable" );
+                // Player not found
+                $sender->sendMessage( "§cLe joueur saisi est introuvable" ); return false;
             }
 
         }else{
-            $sender->sendMessage( $this->getUsage() );
+            // No args passed
+            $sender->sendMessage( $this->getUsage() ); return false;
         }
 
     }

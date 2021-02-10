@@ -4,17 +4,22 @@
 # --------------------------------- #
 
 
-
+# XboxAPI API-KEY(s)
 xapiAccounts:
   - "7946304a8ee150964920dd474045a3eb007bbf36"
+
+
+# Return warns on a certain number of weeks
+warnsHistory: 1
 
 
 
 # ----- Messages : -----
 
+# When all Api-Keys have reached their limits
 requestLimit: "Désolé, le serveur semble avoir beaucoup de succès !\nVeuillez vous connecter a la prochaine heure !.\nSi le problème persiste, veuillez contacter un membre du staff via notre discord."
 
-
+# Chat broadcast (All players see)
 serverBroadcast:
   warn: "{player} {staff} {reason}"
   muteMessage: "{player} {staff} {time} {reason}"
@@ -24,7 +29,7 @@ serverBroadcast:
   banIpMessage: "{player} {staff} {reason}"
 
 
-
+# Chat/Screen broadcast (sanctioned player)
 playerBroadcast:
   muteMessage: "{staff} {time} {reason}"
 
@@ -32,7 +37,8 @@ playerBroadcast:
   banMessage: "Vous avez été banni temporairement par {staff}\nPendant {time}\nPour : {reason}"
   banIpMessage: "Vous avez été banni a vie par {staff}\nPour : {reason}"
 
-playerTryJoin:
 
+# When sanctioned player try join the server
+playerTryJoin:
   banMessage: "Vous avez été banni temporairement par {staff}\nPour : {reason}\nIl vous reste : {time}"
   banIpMessage: "Vous avez été banni à vie par {staff}\nPour : {reason}"

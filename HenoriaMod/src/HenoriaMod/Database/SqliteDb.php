@@ -160,4 +160,64 @@ class SqliteDb{
         $request->execute();
     }
 
+    protected function addWarn( string $xuid, string $playerName, string $source, string $reason, string $creationDate ){
+        $request = $this->db->prepare( "
+            INSERT INTO warns
+                ( xuid, playerName, reason, source, creationDate )
+            VALUES 
+                ( :xuid, :playerName, :reason, :source, :creationDate );
+        ");
+        $request->bindValue( ":xuid", $xuid );
+        $request->bindValue( ":playerName", $playerName );
+        $request->bindValue( ":reason", $reason );
+        $request->bindValue( ":source", $source );
+        $request->bindValue( ":creationDate", $creationDate );
+        $request->execute();
+    }
+
+    protected function getWarns( string $xuid, string $date = null, bool $lastWarn = false ){
+
+        if( $lastWarn ){
+            $request = $this->db->prepare("
+                SELECT * FROM warns
+                WHERE xuid = :xuid
+                ORDER BY DESC LIMIT 1;
+            ");
+            $request->bindValue( ":xuid", $xuid );
+            $result = $request->execute()->fetchArray( SQLITE3_ASSOC );
+
+            return $result === false ? [] : $result;
+        }
+
+        $sqlRequest = "SELECT * FROM warns WHERE xuid = :xuid ";
+
+        if( !empty( $date ) ){
+            $now = new \DateTime();
+            $sqlRequest .= "AND creationDate BETWEEN \"{$date}\" AND \"{$now->format( "Y-m-d H:i:s" )}\" ";
+        }
+        $sqlRequest .= "ORDER BY creationDate DESC;";
+
+
+        $request = $this->db->prepare( $sqlRequest );
+        $request->bindValue( ":xuid", $xuid );
+        $sqlResult = $request->execute();
+
+        $result = [];
+        while ( $row = $sqlResult->fetchArray( SQLITE3_ASSOC ) ){
+            $result[] = $row;
+        }
+
+        return $result;
+    }
+
+    protected function removeWarn( int $warn_id ){
+
+        $request = $this->db->prepare("
+                DELETE FROM warns
+                WHERE warn_id = :warn_id;
+            ");
+        $request->bindValue( ":warn_id", $warn_id );
+        $result = $request->execute();
+    }
+
 }
